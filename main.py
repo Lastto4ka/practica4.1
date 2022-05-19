@@ -22,22 +22,41 @@ def checkint():
            return x
         except ValueError:
             print("Введены некорректные данные")
-def text():
-    print("Введите 0, чтобы закончить, или 1,чтобы добавить число")
-def main():
+
+def menu():
     l=Set()
+    print("Введите 0, чтобы закончить, или 1, чтобы сделать множество из чисел, или 2, чтобы сделать множество символов")
     while True:
-        text()
-        numb=checkint()
+        numb = checkint()
         if numb == 1:
-            print("введите число, которое хотите добавить")
-            add=checkint()
-            l.add(add)
-            print(l)
+            while True:
+                print("введите число, которое хотите добавить")
+                add=checkint()
+                l.add(add)
+                print(l)
+                print("Введите 0, чтобы закончить, или любое число,чтобы продолжить")
+                numb1 = checkint()
+                if numb1 == 0:
+                    break
+            break
+        elif numb == 2:
+            while True:
+                print("введите символ, который хотите добавить")
+                add = str(input())
+                l.add(add)
+                print(l)
+                print("Введите 0, чтобы закончить, или любое число,чтобы продолжить")
+                numb1 = checkint()
+                if numb1 == 0:
+                    break
+            break
         elif numb == 0:
             break
         else:
             print("Введена некорректная команда")
+
+def main():
+    menu()
 
 if __name__ == '__main__':
     main()
